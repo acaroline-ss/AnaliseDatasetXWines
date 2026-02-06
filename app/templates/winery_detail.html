@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Detalhes da Vinícola</h1>
+
+  {% if winery %}
+    <div class="vintage-info-box">
+      <ul class="vintage-info-list">
+
+        <li class="vintage-info-item">
+          <strong>WineryID:</strong> {{ winery['WineryID'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Nome:</strong> {{ winery['WineryName'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>RegionID:</strong>
+          <a href="/Region/{{ winery['RegionID'] }}/">
+            {{ winery['RegionID'] }}
+          </a>
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Website:</strong>
+          <a href="{{ winery['Website'] }}" target="_blank">
+            {{ winery['Website'] }}
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+  {% else %}
+    <p>Winery não encontrada.</p>
+  {% endif %}
+
+  <p><a class="nav-btn" href="/Winery/">Voltar à lista de wineries</a></p>
+{% endblock %}

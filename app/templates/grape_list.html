@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Uvas</h1>
+
+  <div>
+    {% for g in grapes %}
+        <a class="grape-tag" href="/Grape/{{ g['GrapeID'] }}/">
+        {{ g['GrapeName'].replace("'", "").replace("]", "") }}
+        </a>
+    {% endfor %}
+  </div>
+
+  <p><a class="nav-btn" href="/"></a></p>
+
+{% endblock %}

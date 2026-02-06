@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="related-wines-title">Q10 — Produtores com elevada variedade de vinhos</h1>
+  <p class="query-desc">Objetivo: Calcular o número total de vinhos por produtor, mostrando apenas as vinícolas que produzem
+mais de 5 vinhos</p>
+
+  {% if rows %}
+    <table>
+      <tr>
+        {% for col in rows[0].keys() %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+
+      {% for r in rows %}
+        <tr>
+          {% for col in r.keys() %}
+            <td>{{ r[col] }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Sem resultados.</p>
+  {% endif %}
+{% endblock %}

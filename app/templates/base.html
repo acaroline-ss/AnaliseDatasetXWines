@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+
+  <!-- Título da aba -->
+  <title>WINES - A Enciclopédia dos Vinhos</title>
+
+  <!-- Favicon com emoji de taça de vinhos -->
+  <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <text y='0.9em' font-size='90'>🍷</text>
+    </svg>">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+  <header class="top-bar">
+    <div class="brand">WINES</div>
+
+    <form class="search-form" action="/search/" method="get">
+      <input
+        type="text"
+        name="q"
+        class="search-input"
+        placeholder="Pesquise por vinhos, castas, regiões..."
+        value="{{ request.args.get('q', '') }}"
+      >
+    </form>
+
+    <nav>
+      <a href="/" class="top-home-btn">HOME</a>
+    </nav>
+  </header>
+
+
+  <main class="page-container">
+    <div class="card">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </main>
+
+</body>
+</html>

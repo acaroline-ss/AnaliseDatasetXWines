@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Pratos</h1>
+
+  <div>
+    {% for d in dishes %}
+      <a class="grape-tag" href="{{ url_for('dish_detail', dish_id=d['DishID']) }}">
+        {{ d['DishName'] }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <p><a class="top-home-btn" href="/">Home</a></p>
+{% endblock %}
+

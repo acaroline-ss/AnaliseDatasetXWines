@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Safra: {{ vintage['VintageName'] }}</h1>
+
+  <div class="vintage-info-box">
+    <ul class="vintage-info-list">
+      <li class="vintage-info-item">
+        <strong>ID:</strong> {{ vintage['VintageID'] }}
+      </li>
+
+      <li class="vintage-info-item">
+        <strong>Ano:</strong>
+        {% if vintage['IsNonVintage'] == 1 %}
+          Não possui ano (N.V.)
+        {% else %}
+          {{ vintage['Year'] }}
+        {% endif %}
+      </li>
+    </ul>
+  </div>
+
+  <div class="related-wines-section">
+    <h3 class="related-wines-title">
+      Ano de colheita das uvas utilizadas na produção dos seguintes vinhos
+    </h3>
+
+    {% if wines and wines|length > 0 %}
+      <ul class="related-wines-list">
+        {% for wine in wines %}
+          <li class="related-wine-item">
+            <a class="related-wine-link" href="/Wine/{{ wine['WineID'] }}/">
+              <span class="related-wine-name">
+                {{ wine['WineName'] }}
+              </span>
+              <span class="related-wine-type">
+                {{ wine['Type'] }}
+              </span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="related-wines-empty">
+        Não há vinhos registados para este vintage.
+      </p>
+    {% endif %}
+  </div>
+
+  <p><a class="nav-btn" href="/Vintage/">Voltar</a></p>
+{% endblock %}

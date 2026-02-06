@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Regiões</h1>
+
+  <table>
+    <tr>
+      <th>RegionID</th>
+      <th>Nome da região</th>
+    </tr>
+
+    {% for r in regions %}
+      <tr>
+        <td>
+          <a class="id-pill" href="/Region/{{ r['RegionID'] }}/">
+            {{ r['RegionID'] }}
+          </a>
+        </td>
+        <td>{{ r['RegionName'] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

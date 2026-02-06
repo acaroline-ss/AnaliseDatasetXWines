@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="related-wines-title">Q3 — Estatísticas sobre o teor alcoólico dos vinhos</h1>
+  <p class="query-desc">Objetivo: Obter o valor médio, o número de vinhos, o total, o máximo e o mínimo do teor alcoólico</p>
+
+  {% if rows %}
+    <table>
+      <tr>
+        {% for col in rows[0].keys() %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+
+      {% for r in rows %}
+        <tr>
+          {% for col in r.keys() %}
+            <td>{{ r[col] }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Sem resultados.</p>
+  {% endif %}
+{% endblock %}

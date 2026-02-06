@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>WINES — Bases de Dados</title>
+
+  <link rel="icon" href="data:image/svg+xml,
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+      <text y='0.9em' font-size='90'>🍷</text>
+    </svg>">
+
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+
+<body>
+
+  <header class="top-bar">
+    <div class="brand">WINES</div>
+  </header>
+
+  <main class="page-container">
+    <div class="card">
+
+      <h1>Projeto WINES — Bases de Dados</h1>
+
+      <p>
+        Esta aplicação web foi desenvolvida no âmbito da unidade curricular de
+        <strong>Bases de Dados</strong> e permite explorar informação sobre vinhos,
+        produtores, regiões, países, castas e harmonizações gastronómicas,
+        recorrendo a uma base de dados relacional SQLite e a uma aplicação Flask.
+      </p>
+
+      <h2>Como executar a aplicação</h2>
+
+      <h3>1. Pré-requisitos</h3>
+      <ul>
+        <li>Python 3</li>
+        <li>pip</li>
+      </ul>
+
+      <pre><code>python3 --version
+pip3 --version</code></pre>
+
+      <h3>2. Instalação das dependências</h3>
+      <p>A aplicação utiliza a biblioteca <strong>Flask</strong>.</p>
+      <pre><code>pip3 install Flask</code></pre>
+
+      <p>(Em alguns sistemas poderá ser necessário usar <code>pip3 install --user Flask</code>.)</p>
+
+      <h3>3. Estrutura do projeto</h3>
+
+      <pre><code>projeto-bd/
+├── app/
+│   ├── app.py
+│   ├── server.py
+│   ├── db.py
+│   ├── test_db_connection.py
+│   ├── wines.db
+│   ├── static/
+│   │   ├── style.css
+│   │   └── app_screenshot.png
+│   └── templates/
+│       ├── base.html
+│       ├── index.html
+│       ├── search_results.html
+│       ├── wine_list.html
+│       ├── wine_detail.html
+│       ├── winery_list.html
+│       ├── winery_detail.html
+│       ├── region_list.html
+│       ├── region_detail.html
+│       ├── country_list.html
+│       ├── country_detail.html
+│       ├── grape_list.html
+│       ├── grape_detail.html
+│       ├── dish_list.html
+│       ├── dish_detail.html
+│       ├── vintage_list.html
+│       ├── vintage_detail.html
+│       ├── q1.html
+│       ├── q2.html
+│       ├── q4.html
+│       ├── q5.html
+│       ├── q6.html
+│       ├── q7.html
+│       ├── q8.html
+│       ├── q9.html
+│       └── q10.html
+├── data/
+│   └── X-Wines.csv
+├── sql/
+│   └── 01_schema.sql
+├── populate_associative.py
+├── wines.db
+├── README.md
+└── README.html</code></pre>
+
+      <h3>4. Configuração da base de dados</h3>
+      <p>
+        No ficheiro <code>db.py</code>, confirma o caminho para a base de dados:
+      </p>
+      <pre><code>DB_FILE = "wines.db"</code></pre>
+
+      <h3>5. Executar o servidor</h3>
+      <p>Na pasta <code>app/</code>, executa:</p>
+      <pre><code>python3 server.py</code></pre>
+
+      <h3>6. Aceder à aplicação</h3>
+      <pre><code>http://127.0.0.1:9000
+http://localhost:9000</code></pre>
+
+      <p>
+        A partir da página inicial é possível navegar pelas várias entidades
+        (Wines, Wineries, Regions, Countries, Grapes e Dishes), bem como pelas
+        interrogações pedidas no enunciado do trabalho.
+      </p>
+
+    </div>
+  </main>
+
+</body>
+</html>

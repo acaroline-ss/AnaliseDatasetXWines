@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="related-wines-title">Q1 — Distribuição de vinhos por país</h1>
+  <p class="query-desc">Objetivo: Determinar quantos vinhos existem em cada país representado na base de dados</p>
+
+  {% if rows %}
+    <table>
+      <tr>
+        {% for col in rows[0].keys() %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+
+      {% for r in rows %}
+        <tr>
+          {% for col in r.keys() %}
+            <td>{{ r[col] }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Sem resultados.</p>
+  {% endif %}
+{% endblock %}
+

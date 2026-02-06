@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Detalhes do país</h1>
+
+  {% if country %}
+    <div class="vintage-info-box">
+      <ul class="vintage-info-list">
+        <li class="vintage-info-item">
+          <strong>Código:</strong> {{ country['Code'] }}
+        </li>
+        <li class="vintage-info-item">
+          <strong>Nome:</strong> {{ country['CountryName'] }}
+        </li>
+      </ul>
+    </div>
+  {% else %}
+    <p>País não encontrado.</p>
+  {% endif %}
+
+  <p><a class="nav-btn" href="/Country/">Voltar à lista de países</a></p>
+{% endblock %}

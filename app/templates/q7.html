@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="related-wines-title">Q7 — Vinhos cujas vinícolas não possuem website</h1>
+
+  <p class="query-desc">
+    Objetivo: Identificar os vinhos associados a vinícolas que não possuem website registado. 
+    Esta interrogação permite destacar produtores sem presença digital ou com informação incompleta na base de dados.
+  </p>
+
+  {% if rows %}
+    <table>
+      <tr>
+        {% for col in rows[0].keys() %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+
+      {% for r in rows %}
+        <tr>
+          {% for col in r.keys() %}
+            <td>{{ r[col] }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Sem resultados.</p>
+  {% endif %}
+{% endblock %}

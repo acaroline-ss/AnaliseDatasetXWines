@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Vinhos</h1>
+
+  <table>
+    <tr>
+      <th>WineID</th>
+      <th>Nome</th>
+      <th>Tipo</th>
+    </tr>
+
+    {% for w in wines %}
+      <tr>
+        <td>
+          <a class="id-pill" href="/Wine/{{ w['WineID'] }}/">
+            {{ w['WineID'] }}
+          </a>
+        </td>
+        <td>{{ w['WineName'] }}</td>
+        <td>{{ w['Type'] }}</td>
+      </tr>
+    {% endfor %}
+
+  </table>
+{% endblock %}

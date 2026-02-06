@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Detalhes da região</h1>
+
+  {% if region %}
+    <div class="vintage-info-box">
+      <ul class="vintage-info-list">
+
+        <li class="vintage-info-item">
+          <strong>RegionID:</strong> {{ region['RegionID'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Nome:</strong> {{ region['RegionName'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>País (Code):</strong>
+          <a href="/Country/{{ region['CountryCode'] }}/">
+            {{ region['CountryCode'] }}
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  {% else %}
+    <p>Região não encontrada.</p>
+  {% endif %}
+
+  <p><a class="nav-btn" href="/Region/">Voltar à lista de regiões</a></p>
+{% endblock %}

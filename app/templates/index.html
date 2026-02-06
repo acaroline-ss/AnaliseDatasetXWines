@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2 class="titulo-vinho">TABELAS</h2>
+<ul class="tables-container">
+  <li><a class="table-card" href="/Wine/">Vinhos</a></li>
+  <li><a class="table-card" href="/Country/">Países</a></li>
+  <li><a class="table-card" href="/Region/">Regiões</a></li>
+  <li><a class="table-card" href="/Winery/">Vinícolas</a></li>
+  <li><a class="table-card" href="/Grape/">Uvas</a></li>
+  <li><a class="table-card" href="/Dish/">Pratos</a></li>
+  <li><a class="table-card" href="/Vintage/">Anos de Colheita</a></li>
+</ul>
+
+<h2 class="titulo-vinho">INTERROGAÇÕES</h2>
+
+<ul class="link-query-list">
+  <li>
+    <a class="link-card query-card" href="/q1/">
+      <span class="q-code">Q1</span>
+      <span class="q-text">Número de vinhos por país</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q2/">
+      <span class="q-code">Q2</span>
+      <span class="q-text">Número de vinhos por região</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q3/">
+      <span class="q-code">Q3</span>
+      <span class="q-text">Funções de agregação sobre o teor alcoólico</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q4/">
+      <span class="q-code">Q4</span>
+      <span class="q-text">Castas usadas em muitos vinhos</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q5/">
+      <span class="q-code">Q5</span>
+      <span class="q-text">Vinhos que harmonizam com pratos contendo “Beef”</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q6/">
+      <span class="q-code">Q6</span>
+      <span class="q-text">Vinhos com a segunda maior graduação alcoólica</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q7/">
+      <span class="q-code">Q7</span>
+      <span class="q-text">Vinhos que não têm website associado</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q8/">
+      <span class="q-code">Q8</span>
+      <span class="q-text">Castas comuns a vinhos tintos e brancos</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q9/">
+      <span class="q-code">Q9</span>
+      <span class="q-text">Castas exclusivas de um único vinho</span>
+    </a>
+  </li>
+
+  <li>
+    <a class="link-card query-card" href="/q10/">
+      <span class="q-code">Q10</span>
+      <span class="q-text">Produtores com muitos vinhos</span>
+    </a>
+  </li>
+</ul>
+
+{% endblock %}

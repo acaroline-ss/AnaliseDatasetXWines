@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="related-wines-title">Q5 — Vinhos que harmonizam com pratos contendo “Beef”</h1>
+  <p class="query-desc">Objetivo: Listar os vinhos que harmonizam com qualquer prato que contenha a palavra Beef</p>
+
+  {% if rows %}
+    <table>
+      <tr>
+        {% for col in rows[0].keys() %}
+          <th>{{ col }}</th>
+        {% endfor %}
+      </tr>
+
+      {% for r in rows %}
+        <tr>
+          {% for col in r.keys() %}
+            <td>{{ r[col] }}</td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Sem resultados.</p>
+  {% endif %}
+{% endblock %}

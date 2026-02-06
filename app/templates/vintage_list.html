@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Anos de Colheita</h1>
+
+  <div>
+    {% for v in vintages %}
+      <a class="grape-tag" href="{{ url_for('vintage_detail', vintage_id=v['VintageID']) }}">
+        {{ v['VintageName'] }}
+      </a>
+    {% endfor %}
+  </div>
+
+  <p><a class="top-home-btn" href="/">Home</a></p>
+{% endblock %}

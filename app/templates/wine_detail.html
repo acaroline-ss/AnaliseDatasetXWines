@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Detalhes do vinho</h1>
+
+  {% if wine %}
+    <div class="vintage-info-box">
+      <ul class="vintage-info-list">
+
+        <li class="vintage-info-item">
+          <strong>WineID:</strong> {{ wine['WineID'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Nome:</strong> {{ wine['WineName'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Tipo:</strong> {{ wine['Type'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Elaborate:</strong> {{ wine['Elaborate'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>ABV:</strong> {{ wine['ABV'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Body:</strong> {{ wine['Body'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Acidity:</strong> {{ wine['Acidity'] }}
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Região:</strong>
+          <a href="/Region/{{ wine['RegionID'] }}/">
+            {{ wine['RegionID'] }}
+          </a>
+        </li>
+
+        <li class="vintage-info-item">
+          <strong>Winery:</strong>
+          <a href="/Winery/{{ wine['WineryID'] }}/">
+            {{ wine['WineryID'] }}
+          </a>
+        </li>
+
+      </ul>
+    </div>
+
+    {% if grapes %}
+      <h2 class="subtitulo-vinho">Uvas utilizadas</h2>
+      <div>
+        {% for g in grapes %}
+          <a class="grape-tag" href="/Grape/{{ g['GrapeID'] }}/">
+            {{ g['GrapeName'] }}
+          </a>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>Não há informação de uvas para este vinho.</p>
+    {% endif %}
+
+  {% else %}
+    <p>Vinho não encontrado.</p>
+  {% endif %}
+
+  {% if dishes %}
+    <h2 class="subtitulo-vinho">Pratos que harmonizam</h2>
+    <div>
+      {% for dish in dishes %}
+        <a class="grape-tag" href="/Dish/{{ dish['DishID'] }}/">
+          {{ dish['DishName'] }}
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Não há informação de pratos de harmonização para este vinho.</p>
+  {% endif %}
+
+  {% if vintages %}
+    <h2 class="subtitulo-vinho">Anos de colheita</h2>
+    <div>
+      {% for v in vintages %}
+        <a class="grape-tag" href="/Vintage/{{ v['VintageID'] }}/">
+          {% if v['IsNonVintage'] %}
+            N.V.
+          {% else %}
+            {{ v['Year'] }}
+          {% endif %}
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Não há informação de vintages para este vinho.</p>
+  {% endif %}
+
+  <p><a class="nav-btn" href="/Wine/">Voltar à lista de vinhos</a></p>
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1 class="titulo-vinho search-title">
+    Resultados da pesquisa por "{{ query }}"
+  </h1>
+
+  {% if results.wines %}
+    <section class="search-section">
+      <h2 class="search-subtitle">Vinhos</h2>
+      <ul class="search-result-list">
+        {% for w in results.wines %}
+          <li class="search-result-item">
+            <a href="/Wine/{{ w['WineID'] }}/" class="search-result-link">
+              {{ w['WineName'] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if results.grapes %}
+    <section class="search-section">
+      <h2 class="search-subtitle">Castas</h2>
+      <ul class="search-result-list">
+        {% for g in results.grapes %}
+          <li class="search-result-item">
+            <a href="/Grape/{{ g['GrapeID'] }}/" class="search-result-link">
+              {{ g['GrapeName'] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if results.dishes %}
+    <section class="search-section">
+      <h2 class="search-subtitle">Pratos</h2>
+      <ul class="search-result-list">
+        {% for d in results.dishes %}
+          <li class="search-result-item">
+            <a href="/Dish/{{ d['DishID'] }}/" class="search-result-link">
+              {{ d['DishName'] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if results.regions %}
+    <section class="search-section">
+      <h2 class="search-subtitle">Regiões</h2>
+      <ul class="search-result-list">
+        {% for r in results.regions %}
+          <li class="search-result-item">
+            <a href="/Region/{{ r['RegionID'] }}/" class="search-result-link">
+              {{ r['RegionName'] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if results.countries %}
+    <section class="search-section">
+      <h2 class="search-subtitle">Países</h2>
+      <ul class="search-result-list">
+        {% for c in results.countries %}
+          <li class="search-result-item">
+            <a href="/Country/{{ c['Code'] }}/" class="search-result-link">
+              {{ c['CountryName'] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if results.wineries %}
+    <section class="search-section">
+      <h2 class="search-subtitle">Vinícolas</h2>
+      <ul class="search-result-list">
+        {% for w in results.wineries %}
+          <li class="search-result-item">
+            <a href="/Winery/{{ w['WineryID'] }}/" class="search-result-link">
+              {{ w['WineryName'] }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if results.vintages %}
+    <section class="search-section">
+        <h2 class="search-subtitle">Anos de colheita</h2>
+        <ul class="search-result-list">
+        {% for v in results.vintages %}
+            <li class="search-result-item">
+            <a href="/Vintage/{{ v['VintageID'] }}/" class="search-result-link">
+                {{ v['VintageLabel'] }}
+            </a>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+   {% endif %}
+
+
+    {% if (not results.wines 
+            and not results.grapes 
+            and not results.dishes
+            and not results.regions 
+            and not results.countries 
+            and not results.wineries
+            and not results.vintages) %}
+        <p class="search-empty">Nenhum resultado encontrado.</p>
+    {% endif %}
+
+{% endblock %}

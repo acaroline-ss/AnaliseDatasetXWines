@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="titulo-vinho">Países</h1>
+
+  <table>
+    <tr>
+      <th>Código</th>
+      <th>País</th>
+    </tr>
+
+    {% for c in countries %}
+      <tr>
+        <td>
+          <a class="id-pill" href="/Country/{{ c['Code'] }}/">
+            {{ c['Code'] }}
+          </a>
+        </td>
+        <td>{{ c['CountryName'] }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
