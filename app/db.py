@@ -7,7 +7,7 @@ global DB, DB_FILE
 
 # CAMINHO CORRETO PARA O RENDER:
 # O banco de dados deve estar na MESMA PASTA que este arquivo
-DB_FILE = os.path.join(os.path.dirname(__file__), 'wines.db')
+DB_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'wines.db')
 
 DB = dict()
 
