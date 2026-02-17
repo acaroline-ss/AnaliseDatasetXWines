@@ -3,8 +3,13 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 from flask import render_template, Flask, request
 import logging
 import db
+from chat import chat_bp
 
 APP = Flask(__name__)
+
+APP.register_blueprint(chat_bp)
+
+APP.config['SECRET_KEY'] = 'wines-chat-secret-key-2026-muito-segura'
 
 # Start page
 @APP.route('/')

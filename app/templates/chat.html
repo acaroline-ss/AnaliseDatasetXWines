@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="chat-container">
+    <!-- Cabeçalho do Chat -->
+    <div class="chat-header">
+        <h2>🍷 Sommelier Digital</h2>
+        <p>Pergunte-me sobre vinhos, harmonizações, regiões e muito mais!</p>
+    </div>
+
+    <!-- Área de Mensagens -->
+    <div class="chat-messages" id="chat-messages">
+        <!-- Mensagem inicial do bot -->
+        <div class="message bot">
+            <div class="message-content">
+                <p>Olá! Sou seu sommelier digital. Posso ajudar você a encontrar:</p>
+                <ul>
+                    <li>🍷 Vinhos por nome, região ou uva</li>
+                    <li>🍽️ Harmonizações com pratos</li>
+                    <li>🏰 Informações sobre produtores</li>
+                    <li>📅 Safras e anos</li>
+                    <li>🌍 Vinhos de países e regiões</li>
+                </ul>
+                <p><strong>O que você gostaria de saber hoje?</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sugestões de Perguntas -->
+    <div class="sugestoes-container">
+        <div class="sugestoes-title">💡 Sugestões de perguntas:</div>
+        <div class="sugestoes-grid" id="sugestoes-grid">
+            <!-- As sugestões serão carregadas via JS -->
+        </div>
+    </div>
+
+    <!-- Área de Input -->
+    <div class="chat-input-container">
+        <input type="text" 
+               id="user-input" 
+               class="chat-input" 
+               placeholder="Digite sua pergunta sobre vinhos..."
+               autocomplete="off">
+        <button id="send-button" class="send-button">
+            <span>Enviar</span>
+        </button>
+    </div>
+
+    <!-- Indicador de Digitação (inicialmente oculto) -->
+    <div class="typing-indicator" id="typing-indicator">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</div>
+
+<!-- Script do chat -->
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+{% endblock %}

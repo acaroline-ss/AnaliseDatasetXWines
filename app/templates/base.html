@@ -12,6 +12,7 @@
       <text y='0.9em' font-size='90'>🍷</text>
     </svg>">
 
+  
   <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
@@ -37,13 +38,15 @@
     </nav>
   </header>
 
-
   <main class="page-container">
     <div class="card">
       {% block content %}
       {% endblock %}
     </div>
   </main>
+
+  <!-- Botão flutuante do chat -->
+  <a href="/chat" class="chat-floating-button" title="Pergunte ao Sommelier">🍷</a>
 
 </body>
 </html>
