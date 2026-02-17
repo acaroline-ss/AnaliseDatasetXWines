@@ -407,9 +407,7 @@ table tr:hover {
   -webkit-text-fill-color: transparent;
 }
 
-
-
-/* Botão Home na barra, no estilo dos outros */
+/* Botão Home na barra */
 .top-home-btn {
   display: inline-block;
   padding: 8px 18px;
@@ -540,7 +538,7 @@ table tr:hover {
 .link-query-list {
     list-style: none;
     padding-left: 0;
-    margin-top: 40px; /* distância do bloco Tabelas */
+    margin-top: 40px; 
 }
 
 /* título da secção Interrogações, com espaço em relação às Tabelas */
@@ -681,8 +679,8 @@ table tr:hover {
 }
 
 .table-card:hover {
-    background-color: var(--wine);      /* vinho escuro */
-    color: #ffffff !important;          /* texto branco */
+    background-color: var(--wine);      
+    color: #ffffff !important;          
     box-shadow: 0 4px 10px rgba(122, 11, 36, 0.25);
     transform: translateY(-1px);
     text-transform: uppercase;
@@ -690,10 +688,10 @@ table tr:hover {
 
 .titulo-vinho {
     font-family: 'Playfair Display', serif;
-    font-size: 32px;       /* tamanho elegante */
-    font-weight: 700;      /* mais sofisticado */
-    text-align: center;    /* centralizar */
-    color: #6a0f1a;        /* tom vinho elegante */
+    font-size: 32px;       
+    font-weight: 700;      
+    text-align: center;    
+    color: #6a0f1a;        
     margin-top: 20px;
     margin-bottom: 20px;
     letter-spacing: 1px;
@@ -705,7 +703,7 @@ table tr:hover {
     font-size: 24px;
     font-weight: 700;
     text-align: left;
-    color: #5e0f17; /* tom vinho mais suave */
+    color: #5e0f17; 
     margin-top: 35px;
     margin-bottom: 8px;
     position: relative;
@@ -716,7 +714,7 @@ table tr:hover {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #b88a8a; /* linha suave */
+    background-color: #b88a8a; 
     margin-top: 6px;
     border-radius: 2px;
 }
@@ -740,7 +738,7 @@ table tr:hover {
 .search-box button {
   padding: 6px 10px;
   border: none;
-  background-color: #8A0B2F; /* vinho tinto */
+  background-color: #8A0B2F; 
   color: white;
   border-radius: 6px;
   cursor: pointer;
@@ -960,7 +958,6 @@ table tr:hover {
 
 /* =============================================
    CHATBOT STYLES - Sommelier Digital
-   Adicionar ao final do seu style.css existente
    ============================================= */
 
 /* Container principal do chat */

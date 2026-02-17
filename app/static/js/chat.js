@@ -1,5 +1,5 @@
 // static/js/chat.js
-// Lógica do chatbot - coloque na pasta static/js/
+// Lógica do chatbot
 
 document.addEventListener('DOMContentLoaded', function() {
     // Elementos do DOM

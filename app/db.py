@@ -5,8 +5,7 @@ import re
 global DB, DB_FILE
 
 # TODO change this to your database file
-DB_FILE = '/Users/jeff/Documents/projeto-bd/wines.db'
-
+DB_FILE = '/caminho/para/seu/projeto-bd/wines.db' # 🔧 ALTERE PARA SEU CAMINHO!
 
 DB = dict()
 

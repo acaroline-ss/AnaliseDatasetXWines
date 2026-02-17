@@ -1,16 +1,38 @@
-# chat_logic.py - Versão com memória
+# chat_logic.py 
 import logging
 import sqlite3
 import re
 from groq import Groq
 
-# Configuração do Groq
+# ===== CONFIGURAÇÃO DA API =====
+# O chatbot usa a API Groq (gratuita) por padrão.
+# Para usar, você precisa de uma chave de API:
+# 1. Crie uma conta em https://console.groq.com
+# 2. Gere sua chave de API
+# 3. Substitua abaixo ou defina como variável de ambiente
+#
+# 🔑 IMPORTANTE: Nunca compartilhe sua chave públicamente!
+#    Em produção, use variáveis de ambiente:
+#    export GROQ_API_KEY="sua-chave-aqui"
+
+# Coloque sua chave diretamente (apenas para testes locais)
 client = Groq(
-    api_key="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"
+    api_key="cole-sua-chave-do-groq-aqui"  # 🔐 Substitua pela sua chave
 )
 
-# Caminho do banco de dados
-DB_PATH = '/Users/jeff/Documents/projeto-bd/wines.db'
+# Para usar outra API (OpenAI, Claude, Gemini, etc), 
+# você precisa:
+# 1. Trocar a importação no início do arquivo
+# 2. Trocar a configuração do client acima
+# 3. Ajustar a chamada na função perguntar_groq
+
+# ===== CONFIGURAÇÃO DO BANCO DE DADOS =====
+# Ajuste este caminho para a localização do seu arquivo wines.db
+# Exemplos:
+# - Mac/Linux: '/caminho/para/seu/projeto/wines.db'
+# - Windows: 'C:\\caminho\\para\\seu\\projeto\\wines.db'
+
+DB_PATH = '/caminho/para/seu/projeto-bd/wines.db'  # 🔧 ALTERE PARA SEU CAMINHO!
 
 def limpar_texto(texto):
     """Remove colchetes e aspas dos textos"""
@@ -188,7 +210,7 @@ def perguntar_groq(pergunta, dados, historico=None):
 
     """Envia para o Groq com contexto da conversa anterior"""
     
-    # Monta o contexto com os dados encontrados - VERSÃO CORRETA COM ABV
+    # Monta o contexto com os dados encontrados 
     contexto_dados = "DADOS DO CATÁLOGO DE VINHOS:\n\n"
 
     if dados and len(dados) > 0:
@@ -222,12 +244,11 @@ def perguntar_groq(pergunta, dados, historico=None):
     contexto_historico = ""
     if historico and len(historico) > 0:
         contexto_historico = "HISTÓRICO DA CONVERSA ATUAL:\n"
-        for msg in historico[-10:]:  # Últimas  mensagens para não ficar muito longo
+        for msg in historico[-10:]:  
             papel = "Cliente" if msg['role'] == 'user' else "Sommelier"
             contexto_historico += f"{papel}: {msg['content']}\n"
         contexto_historico += "\n"
     
-    # PROMPT ATUALIZADO COM MEMÓRIA
     prompt = f"""{contexto_dados}
 
 {contexto_historico}

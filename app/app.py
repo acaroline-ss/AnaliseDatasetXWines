@@ -9,14 +9,22 @@ APP = Flask(__name__)
 
 APP.register_blueprint(chat_bp)
 
-APP.config['SECRET_KEY'] = 'wines-chat-secret-key-2026-muito-segura'
+# ===== CONFIGURAÇÃO DE SEGURANÇA =====
+# Chave secreta para sessões do Flask
+# Em produção, use uma chave forte e única!
+# Você pode gerar uma com: python -c "import secrets; print(secrets.token_hex(32))"
+
+APP.config['SECRET_KEY'] = 'mude-esta-chave-para-uma-chave-segura'  # 🔐 ALTERE PARA SUA CHAVE!
+
+# Para desenvolvimento, pode deixar assim
+# Em produção, use variável de ambiente:
+# APP.config['SECRET_KEY'] = os.environ.get('FLASK_SECRET_KEY', 'fallback-dev-key')
 
 # Start page
 @APP.route('/')
 def index():
     return render_template('index.html', message='Hello World!')
 
-#Barra de pesquisa 
 # Barra de pesquisa 
 @APP.route('/search/')
 def search():
@@ -28,7 +36,7 @@ def search():
     q_pattern = f"%{q}%"
     results = {}
 
-    # Procurar vinhos (limpa nomes e evita duplicados)
+    # Procurar vinhos 
     results["wines"] = db.execute("""
         SELECT DISTINCT
             w.WineID,
@@ -46,7 +54,7 @@ def search():
         ORDER BY WineName;
     """, (q_pattern,)).fetchall()
 
-    # Procurar castas (apenas castas ligadas a vinhos, sem repetição)
+    # Procurar castas 
     results["grapes"] = db.execute("""
         SELECT 
             MIN(g.GrapeID) AS GrapeID,
@@ -66,7 +74,7 @@ def search():
         ORDER BY GrapeName;
     """, (q_pattern,)).fetchall()
 
-    # Procurar pratos (apenas pratos que realmente têm vinhos)
+    # Procurar pratos 
     results["dishes"] = db.execute("""
         SELECT DISTINCT
             d.DishID,
@@ -130,8 +138,6 @@ def search():
     """, (q_pattern,)).fetchall()
 
     return render_template("search_results.html", query=q, results=results)
-
-
 
 # Lista de vinhos
 @APP.route('/Wine/')
