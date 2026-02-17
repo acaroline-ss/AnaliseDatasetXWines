@@ -48,6 +48,39 @@ Todos os dados do dataset foram aproveitados de forma inteligente, sendo distrib
 
 Adicionalmente, a aplicação disponibiliza páginas dedicadas às interrogações SQL, permitindo executar consultas analíticas diretamente a partir da interface web.
 
+## Exemplo da Aplicação
+
+### Página Inicial
+Visão geral da aplicação, com navegação entre entidades e acesso à pesquisa.
+
+![Página inicial](app/static/screenshots/home.png)
+
+### Lista de Vinhos
+Listagem completa dos vinhos disponíveis no catálogo.
+
+![Lista de vinhos](app/static/screenshots/wines.png)
+
+### Detalhe de um Vinho
+Página de detalhe com informação específica e ligações para entidades relacionadas.
+
+![Detalhe do vinho](app/static/screenshots/wine_detail.png)
+
+### Castas (Uvas)
+Página dedicada às castas, permitindo navegação cruzada com os vinhos associados.
+
+![Castas](app/static/screenshots/uvas.png)
+
+### Pesquisa
+Resultados da pesquisa integrada na aplicação.
+
+![Resultados da pesquisa](app/static/screenshots/lupa.png)
+
+### Interrogações SQL
+Exemplo de interrogação SQL executada diretamente a partir da interface web.
+
+![Interrogações SQL](app/static/screenshots/sql_query.png)
+
+
 ## Competências Demonstradas
 
 *   Análise de dados
